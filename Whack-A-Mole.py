@@ -1,5 +1,6 @@
 #Lennon Hudson
 import pygame
+import random
 
 # Define some colors
 BLACK = (0, 0, 0)
@@ -24,6 +25,9 @@ def draw_holes(screen, x, y):
     pygame.draw.ellipse(screen, BLACK, [x+300, y+150, 150, 50], )
 
 #player_image = pygame.image.load(“player.png”).convert_alpha()
+#pygame.mixer.music.load('RockOn.mid')
+#pygame.mixer.music.play(-1,0.0)
+#click_sound = pygame.mixer.Sound("laser5.ogg")
 
 # Loop until the user clicks the close button.
 done = False
@@ -37,6 +41,8 @@ while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
+            #elif event.type == pygame.MOUSEBUTTONDOWN:
+                #click_sound.play() make a noise when mole is hit
 
     # --- Game logic should go here
 
@@ -58,7 +64,7 @@ while not done:
     y = player_position[1]
     pygame.mouse.set_visible(0)
     # Copy image to screen:
-    screen.blit(player_image, [x, y])
+    screen.blit(player_image, [x, y]) #blit moles and hammer
     # --- Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
 
