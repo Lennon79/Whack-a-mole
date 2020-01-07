@@ -4,8 +4,9 @@ import pygame
 # Define some colors
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
-GREEN = (0, 255, 0)
+GREEN = (42, 140, 49)
 RED = (255, 0, 0)
+BLUE = (99, 147, 242)
 
 pygame.init()
 
@@ -13,7 +14,16 @@ pygame.init()
 size = (700, 500)
 screen = pygame.display.set_mode(size)
 
-pygame.display.set_caption("My Game")
+pygame.display.set_caption("Whack-A-Mole")
+
+def draw_holes(screen, x, y):
+    pygame.draw.ellipse(screen, BLACK, [x, y, 150, 50], )
+    pygame.draw.ellipse(screen, BLACK, [x+200, y, 150, 50], )
+    pygame.draw.ellipse(screen, BLACK, [x+400, y, 150, 50], )
+    pygame.draw.ellipse(screen, BLACK, [x+100, y+150, 150, 50], )
+    pygame.draw.ellipse(screen, BLACK, [x+300, y+150, 150, 50], )
+
+#player_image = pygame.image.load(“player.png”).convert_alpha()
 
 # Loop until the user clicks the close button.
 done = False
@@ -37,10 +47,18 @@ while not done:
 
     # If you want a background image, replace this clear with blit'ing the
     # background image.
-    screen.fill(WHITE)
+    screen.fill(BLUE)
 
     # --- Drawing code should go here
+    pygame.draw.rect(screen, GREEN, [0, 250, 700, 250], 0)
+    draw_holes(screen, 80, 260)
 
+    player_position = pygame.mouse.get_pos()
+    x = player_position[0]
+    y = player_position[1]
+    pygame.mouse.set_visible(0)
+    # Copy image to screen:
+    screen.blit(player_image, [x, y])
     # --- Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
 
