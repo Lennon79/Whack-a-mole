@@ -1,6 +1,7 @@
 #Lennon Hudson
 import pygame
 import random
+#import sys
 
 # Define some colors
 BLACK = (0, 0, 0)
@@ -41,6 +42,7 @@ while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
+            sys.exit()
             #elif event.type == pygame.MOUSEBUTTONDOWN:
                 #click_sound.play() make a noise when mole is hit
 
