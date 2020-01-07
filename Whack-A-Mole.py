@@ -1,5 +1,5 @@
 #Lennon Hudson
-import pygame
+import pygame,random,sys
 import random
 #import sys
 
